@@ -29,7 +29,7 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-        - asset: res/fonts/Roboto/
+        - asset: res/fonts/Roboto/Roboto-Regular.ttf
           
 
   # For details regarding fonts from package dependencies,
