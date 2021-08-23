@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: MyFirstStateFullWidget(),
+      title: 'Places',
     );
   }
 }
@@ -25,6 +23,12 @@ class MyFirstWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Type getRuntimeType() {
+      return context.runtimeType;
+    }
+
+    print(getRuntimeType());
+
     print('call build MyFirstWidget: $count');
     count++;
     return Container(
@@ -41,9 +45,14 @@ class MyFirstStateFullWidget extends StatefulWidget {
 }
 
 class _MyStateFullWidgetState extends State<MyFirstStateFullWidget> {
+  Type getRuntimeType() {
+    return context.runtimeType;
+  }
+
   var count = 0;
   @override
   Widget build(BuildContext context) {
+    print(getRuntimeType());
     print('call build MyFirstWidget: $count');
     count++;
     return Container(
