@@ -9,15 +9,17 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_svg: ^0.22.0
 
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  flutter_lints: ^1.0.4
   flutter_test:
     sdk: flutter
+  surf_lint_rules: ^1.4.0
 
 flutter:
 

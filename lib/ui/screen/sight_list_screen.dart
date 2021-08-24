@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SightListScreen extends StatefulWidget {
-  SightListScreen({Key? key}) : super(key: key);
+  const SightListScreen({Key? key}) : super(key: key);
 
   @override
   _SightListScreenState createState() => _SightListScreenState();
@@ -10,10 +10,10 @@ class SightListScreen extends StatefulWidget {
 class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
-        child: Text('Hello!'),
+        child: Text('Hello'),
       ),
     );
   }
