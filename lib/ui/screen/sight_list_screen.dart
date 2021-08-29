@@ -31,14 +31,16 @@ class _SightListScreenState extends State<SightListScreen> {
             children: [
               TextSpan(children: [
                 TextSpan(
-                    text: 'C',
-                    style: TextStyle(color: Color.fromRGBO(76, 175, 80, 1.0))),
+                  text: 'C',
+                  style: TextStyle(color: Color.fromRGBO(76, 175, 80, 1.0)),
+                ),
                 TextSpan(text: 'писок\n'),
               ]),
               TextSpan(children: [
                 TextSpan(
-                    text: 'и',
-                    style: TextStyle(color: Color.fromRGBO(252, 221, 61, 1.0))),
+                  text: 'и',
+                  style: TextStyle(color: Color.fromRGBO(252, 221, 61, 1.0)),
+                ),
                 TextSpan(text: 'нтересных мест'),
               ]),
             ],
