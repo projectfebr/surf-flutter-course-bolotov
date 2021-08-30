@@ -19,6 +19,7 @@ class SightCard extends StatelessWidget {
       ),
       clipBehavior: Clip.hardEdge,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Container(
@@ -71,7 +72,7 @@ class SightCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      sight.details,
+                      sight.name,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
