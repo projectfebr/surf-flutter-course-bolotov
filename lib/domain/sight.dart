@@ -1,3 +1,4 @@
+// Класс данных о достопримечательности
 class Sight {
   final String name;
   final double lat;

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/resources/resources.dart';
+import 'package:places/utils/app_color.dart';
 
+// Класс верстки экрана детальной информации о достопримечательности.
+// Параметр конструктора sight - данные о достопримечательности типа Sight.
 class SightDetails extends StatelessWidget {
   final Sight sight;
   const SightDetails({
@@ -12,19 +16,19 @@ class SightDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget routeIconWidget = SvgPicture.asset(
-      'res/route.svg',
+      Svgs.route,
       semanticsLabel: 'Route',
       color: Colors.white,
     );
     final Widget calendarIconWidget = SvgPicture.asset(
-      'res/calendar.svg',
+      Svgs.calendar,
       semanticsLabel: 'Calendar',
-      color: const Color.fromRGBO(124, 126, 146, 0.56),
+      color: AppColor.inactivGreyButtonColor,
     );
     final Widget heartIconWidget = SvgPicture.asset(
-      'res/heart.svg',
+      Svgs.heart,
       semanticsLabel: 'Heart',
-      color: const Color.fromRGBO(59, 62, 91, 1),
+      color: AppColor.activGreyButtonColor,
     );
     return Scaffold(
       body: SingleChildScrollView(
@@ -49,7 +53,7 @@ class SightDetails extends StatelessWidget {
                       child: const Icon(
                         Icons.arrow_back_ios_outlined,
                         size: 15,
-                        color: Color.fromRGBO(37, 40, 73, 1),
+                        color: AppColor.topIconDetailsScreenColor,
                       ),
                     ),
                   ),
@@ -67,7 +71,7 @@ class SightDetails extends StatelessWidget {
                       fontFamily: 'Roboto',
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
-                      color: Color.fromRGBO(59, 62, 91, 1),
+                      color: AppColor.activGreyButtonColor,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -83,7 +87,7 @@ class SightDetails extends StatelessWidget {
                             fontFamily: 'Roboto',
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
-                            color: Color.fromRGBO(59, 62, 91, 1),
+                            color: AppColor.activGreyButtonColor,
                           ),
                         ),
                       ),
@@ -93,7 +97,7 @@ class SightDetails extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14,
-                          color: Color.fromRGBO(124, 126, 146, 1),
+                          color: AppColor.inactivGreyButtonColor,
                         ),
                       ),
                     ],
@@ -104,7 +108,7 @@ class SightDetails extends StatelessWidget {
                     style: const TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: 14,
-                      color: Color.fromRGBO(59, 62, 91, 1),
+                      color: AppColor.activGreyButtonColor,
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -112,12 +116,13 @@ class SightDetails extends StatelessWidget {
                     width: double.infinity,
                     height: 48,
                     decoration: BoxDecoration(
-                      color: const Color.fromRGBO(76, 175, 80, 1),
+                      color: AppColor.greenButtonColor,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // AppIcon.icRouteWidget,
                         routeIconWidget,
                         const SizedBox(width: 10),
                         const Text(
@@ -135,7 +140,7 @@ class SightDetails extends StatelessWidget {
                   const SizedBox(height: 24),
                   const Divider(
                     thickness: 0.8,
-                    color: Color.fromARGB(142, 124, 126, 146),
+                    color: AppColor.dividerColor,
                   ),
                   const SizedBox(height: 19),
                   Row(
@@ -144,6 +149,7 @@ class SightDetails extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          // AppIcon.icCalendarWidget,
                           calendarIconWidget,
                           const SizedBox(width: 9),
                           const Text(
@@ -158,6 +164,7 @@ class SightDetails extends StatelessWidget {
                       ),
                       Row(
                         children: [
+                          // AppIcon.icHeartWidget,
                           heartIconWidget,
                           const SizedBox(width: 9),
                           const Text(
@@ -165,7 +172,7 @@ class SightDetails extends StatelessWidget {
                             style: TextStyle(
                               fontFamily: 'Roboto',
                               fontSize: 14,
-                              color: Color.fromRGBO(59, 62, 91, 1),
+                              color: AppColor.activGreyButtonColor,
                             ),
                           ),
                         ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 
+// Класс верстки карточи достопримечательности.
+// Параметр конструктора sight - данные о достопримечательности типа Sight.
 class SightCard extends StatelessWidget {
   final Sight sight;
 

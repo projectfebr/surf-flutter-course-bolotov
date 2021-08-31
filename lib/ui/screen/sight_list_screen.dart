@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/screen/sight_card.dart';
 
+// Класс верстки главного экрана со списком карточек [SightCard] достопримечатльностей
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
 
