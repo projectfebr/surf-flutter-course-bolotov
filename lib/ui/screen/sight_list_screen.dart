@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:places/mocks.dart';
+import 'package:places/ui/screen/sight_card.dart';
 
+// Класс верстки главного экрана со списком карточек [SightCard] достопримечатльностей
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
 
@@ -13,50 +16,66 @@ class _SightListScreenState extends State<SightListScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        // 2) Уберите тени
+        // Убрать тени
         shadowColor: Colors.transparent,
-        // 1) Задайте цвет аппбара идентично цвету заднего фона
+        // Задайте цвет аппбара идентично цвету заднего фона
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        // 3)Задайте высоту аппбара так, чтобы текст не вылезал за края виджета
         toolbarHeight: 100,
         centerTitle: false,
-        title: RichText(
-          text: const TextSpan(
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 32,
-            ),
+        title: const Text(
+          'Список интересных мест',
+          maxLines: 2,
+          textAlign: TextAlign.start,
+          style: TextStyle(
+            fontFamily: 'Roboto',
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 32,
+          ),
+        ),
+        // RichText(
+        //   text: const TextSpan(
+        //     style: TextStyle(
+        //       fontFamily: 'Roboto',
+        //       color: Colors.black,
+        //       fontWeight: FontWeight.bold,
+        //       fontSize: 32,
+        //     ),
+        //     children: [
+        //       TextSpan(children: [
+        //         TextSpan(
+        //           text: 'C',
+        //           style: TextStyle(color: Color.fromRGBO(76, 175, 80, 1.0)),
+        //         ),
+        //         TextSpan(text: 'писок\n'),
+        //       ]),
+        //       TextSpan(children: [
+        //         TextSpan(
+        //           text: 'и',
+        //           style: TextStyle(color: Color.fromRGBO(252, 221, 61, 1.0)),
+        //         ),
+        //         TextSpan(text: 'нтересных мест'),
+        //       ]),
+        //     ],
+        //   ),
+        // ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextSpan(children: [
-                TextSpan(
-                    text: 'C',
-                    style: TextStyle(color: Color.fromRGBO(76, 175, 80, 1.0))),
-                TextSpan(text: 'писок\n'),
-              ]),
-              TextSpan(children: [
-                TextSpan(
-                    text: 'и',
-                    style: TextStyle(color: Color.fromRGBO(252, 221, 61, 1.0))),
-                TextSpan(text: 'нтересных мест'),
-              ]),
+              SightCard(sight: mocks[0]),
+              const SizedBox(height: 16),
+              SightCard(sight: mocks[1]),
+              const SizedBox(height: 16),
+              SightCard(sight: mocks[0]),
+              const SizedBox(height: 16),
+              SightCard(sight: mocks[1]),
             ],
           ),
         ),
-        // const Text(
-        //   'Список интересных мест',
-        //   maxLines: 2,
-        //   textAlign: TextAlign.start,
-        //   style: TextStyle(
-        //     fontFamily: 'Roboto',
-        //     color: Colors.black,
-        //     fontWeight: FontWeight.bold,
-        //     fontSize: 32,
-        //   ),
-      ),
-      body: const Center(
-        child: Text('Hello'),
       ),
     );
   }
