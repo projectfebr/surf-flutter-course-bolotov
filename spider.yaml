@@ -16,9 +16,10 @@ use_part_of: true
 package: resources
 
 groups:
-  # - path: res/images
-  #   class_name: Images
-  #   types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp ]
+  - path: res/icons/
+    class_name: IconsApp
+    prefix: ic
+    types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp ]
   - path: res
     class_name: Svgs
     package: res
