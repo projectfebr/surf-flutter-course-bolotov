@@ -18,7 +18,6 @@ package: resources
 groups:
   - path: res/icons/
     class_name: IconsApp
-    prefix: ic
     types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp ]
   - path: res
     class_name: Svgs

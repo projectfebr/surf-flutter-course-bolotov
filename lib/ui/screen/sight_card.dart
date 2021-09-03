@@ -84,7 +84,7 @@ class SightCard extends StatelessWidget {
                           alignment: Alignment.topRight,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 19, right: 18),
-                            child: Image.asset(IconsApp.heartic),
+                            child: Image.asset(IconsApp.heart),
                           ),
                         ),
                       ),
