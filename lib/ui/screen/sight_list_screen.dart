@@ -15,9 +15,8 @@ class _SightListScreenState extends State<SightListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(100), // here the desired height
-        child: MyAppBarContent(),
+      appBar: const MyAppBar(
+        title: 'Список интересных мест',
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -39,20 +38,21 @@ class _SightListScreenState extends State<SightListScreen> {
   }
 }
 
-//widget содержит контент для своей реализации AppBar через PreferredSize
-class MyAppBarContent extends StatelessWidget {
-  const MyAppBarContent({Key? key}) : super(key: key);
+// реализация AppBar через PreferredSizeWidget
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBar({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Text(
-          'Список интересных мест',
+          title,
           maxLines: 2,
           textAlign: TextAlign.start,
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'Roboto',
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -62,4 +62,7 @@ class MyAppBarContent extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(100);
 }
