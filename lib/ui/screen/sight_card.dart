@@ -44,13 +44,14 @@ class SightCard extends StatelessWidget {
                           return child;
                         }
                         return Center(
-                            child: CupertinoActivityIndicator.partiallyRevealed(
-                          radius: 20,
-                          progress: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes!
-                              : 0,
-                        ));
+                          child: CupertinoActivityIndicator.partiallyRevealed(
+                            radius: 20,
+                            progress: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                                : 0,
+                          ),
+                        );
                       },
                     ),
                   ),

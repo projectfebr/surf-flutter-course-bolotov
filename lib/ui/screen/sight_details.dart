@@ -1,5 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/resources/resources.dart';
 import 'package:places/utils/app_color.dart';
@@ -15,21 +15,6 @@ class SightDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget routeIconWidget = SvgPicture.asset(
-      Svgs.route,
-      semanticsLabel: 'Route',
-      color: Colors.white,
-    );
-    final Widget calendarIconWidget = SvgPicture.asset(
-      Svgs.calendar,
-      semanticsLabel: 'Calendar',
-      color: AppColor.inactivGreyButtonColor,
-    );
-    final Widget heartIconWidget = SvgPicture.asset(
-      Svgs.heart,
-      semanticsLabel: 'Heart',
-      color: AppColor.activGreyButtonColor,
-    );
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -37,27 +22,47 @@ class SightDetails extends StatelessWidget {
           children: [
             AspectRatio(
               aspectRatio: 1,
-              child: Container(
-                color: Colors.lightGreen,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 36, left: 16),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Container(
-                      width: 32,
-                      height: 32,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Icon(
-                        Icons.arrow_back_ios_outlined,
-                        size: 15,
-                        color: AppColor.topIconDetailsScreenColor,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.network(
+                    sight.imageUrl,
+                    fit: BoxFit.cover,
+                    loadingBuilder: (BuildContext context, Widget child,
+                        ImageChunkEvent? loadingProgress) {
+                      if (loadingProgress == null) {
+                        return child;
+                      }
+                      return Center(
+                        child: CupertinoActivityIndicator.partiallyRevealed(
+                          radius: 20,
+                          progress: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes!
+                              : 0,
+                        ),
+                      );
+                    },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 36, left: 16),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        width: 32,
+                        height: 32,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const ImageIcon(
+                          AssetImage(IconsApp.arrow),
+                          color: AppColor.topIconDetailsScreenColor,
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
             ),
             Padding(
@@ -122,8 +127,7 @@ class SightDetails extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // AppIcon.icRouteWidget,
-                        routeIconWidget,
+                        Image.asset(IconsApp.union),
                         const SizedBox(width: 10),
                         const Text(
                           'ПОСТРОИТЬ МАРШРУТ',
@@ -149,15 +153,17 @@ class SightDetails extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // AppIcon.icCalendarWidget,
-                          calendarIconWidget,
+                          Image.asset(
+                            IconsApp.calendar,
+                            color: AppColor.inactivGreyButtonColor,
+                          ),
                           const SizedBox(width: 9),
                           const Text(
                             'Запланировать',
                             style: TextStyle(
                               fontFamily: 'Roboto',
                               fontSize: 14,
-                              color: Color.fromRGBO(124, 126, 146, 0.56),
+                              color: AppColor.inactivGreyButtonColor,
                             ),
                           ),
                         ],
@@ -165,7 +171,10 @@ class SightDetails extends StatelessWidget {
                       Row(
                         children: [
                           // AppIcon.icHeartWidget,
-                          heartIconWidget,
+                          Image.asset(
+                            IconsApp.heart,
+                            color: AppColor.activGreyButtonColor,
+                          ),
                           const SizedBox(width: 9),
                           const Text(
                             'В избранное',
