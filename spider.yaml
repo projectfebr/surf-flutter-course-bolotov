@@ -19,7 +19,10 @@ groups:
   - path: res/icons/
     class_name: IconsApp
     types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp ]
-  - path: res
+  - paths: 
+      - res/icons/svg/emptyPages
+      - res/icons/svg/menu
+      - res/icons/svg/other 
     class_name: Svgs
     package: res
     prefix: ic
